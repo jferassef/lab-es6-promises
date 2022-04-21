@@ -155,25 +155,31 @@ makeBroccoli();
 
 // Bonus 2 - Promise all
 const prom1 = obtainInstruction("brusselsSprouts", 0);
-document.querySelector("#brusselsSprouts").innerHTML += `<li>${prom1}</li>`;
+//document.querySelector("#brusselsSprouts").innerHTML += `<li>${prom1}</li>`;
 const prom2 = obtainInstruction("brusselsSprouts", 1);
-document.querySelector("#brusselsSprouts").innerHTML += `<li>${prom2}</li>`;
+//document.querySelector("#brusselsSprouts").innerHTML += `<li>${prom2}</li>`;
 const prom3 = obtainInstruction("brusselsSprouts", 2);
-document.querySelector("#brusselsSprouts").innerHTML += `<li>${prom3}</li>`;
+//document.querySelector("#brusselsSprouts").innerHTML += `<li>${prom3}</li>`;
 const prom4 = obtainInstruction("brusselsSprouts", 3);
-document.querySelector("#brusselsSprouts").innerHTML += `<li>${prom4}</li>`;
+//document.querySelector("#brusselsSprouts").innerHTML += `<li>${prom4}</li>`;
 const prom5 = obtainInstruction("brusselsSprouts", 4);
-document.querySelector("#brusselsSprouts").innerHTML += `<li>${prom5}</li>`;
+//document.querySelector("#brusselsSprouts").innerHTML += `<li>${prom5}</li>`;
 const prom6 = obtainInstruction("brusselsSprouts", 5);
-document.querySelector("#brusselsSprouts").innerHTML += `<li>${prom6}</li>`;
+//document.querySelector("#brusselsSprouts").innerHTML += `<li>${prom6}</li>`;
 const prom7 = obtainInstruction("brusselsSprouts", 6);
-document.querySelector("#brusselsSprouts").innerHTML += `<li>${prom7}</li>`;
+//document.querySelector("#brusselsSprouts").innerHTML += `<li>${prom7}</li>`;
 const prom8 = obtainInstruction("brusselsSprouts", 7);
-document.querySelector("#brusselsSprouts").innerHTML += `<li>${prom8}</li>`;
+//document.querySelector("#brusselsSprouts").innerHTML += `<li>${prom8}</li>`;
 const prom9 = obtainInstruction("brusselsSprouts", 7);
-document.querySelector("#brusselsSprouts").innerHTML += `<li>${prom9}</li>`;
+//document.querySelector("#brusselsSprouts").innerHTML += `<li>${prom9}</li>`;
 document.querySelector("#brusselsSproutsImg").removeAttribute("hidden");
 
 Promise.all([prom1, prom2, prom3, prom4, prom5, prom6, prom7, prom8, prom9])
-  .then((values) => console.log("values", values))
+  .then((items) => {
+    for (var i = 0; i < items.length - 1; i++) {
+      document.querySelector(
+        "#brusselsSprouts"
+      ).innerHTML += `<li>${items[i]}</li>`;
+    }
+  })
   .catch((err) => console.log("catch()", err));
